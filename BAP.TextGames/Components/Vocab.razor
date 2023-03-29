@@ -1,0 +1,54 @@
+﻿@inherits GamePage
+@using MudBlazor;
+@if (game.IsGameRunning)
+{
+    <button class="btn btn-primary" @onclick="EndGame">End Game</button>
+    <button class="btn btn-primary" @onclick="() => game.ReplayCurrentWord()">Replay Word</button>
+}
+else
+{
+    <h3>Vocabulary Game</h3>
+    <MudGrid>
+        <MudItem xs="12" sm="6" md="3">
+            <button class="btn btn-primary" @onclick="StartGame">Start Game</button>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="3">
+            <MudButton @onclick="() => ShowHighScores()">High Scores</MudButton>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="3">
+            <MudButton @onclick="() => ShowVocabGameSetup()">Edit Vocab words</MudButton>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="3">
+            <MudSelect T="string" Label="" @bind-Value="game.SelectedPersonId">
+                @foreach (var person in game.VocabPeople)
+                {
+                    <MudSelectItem Value="person.Id">@person.PersonName</MudSelectItem>
+                }
+            </MudSelect>
+            <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => ShowEditPersonDialog(true))" />
+            <MudIconButton Icon="@Icons.Material.Filled.Add" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => ShowEditPersonDialog(false))" />
+            <MudIconButton Icon="@Icons.Material.Filled.Delete" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => game.DeletePerson(game.SelectedPersonId))" />
+        </MudItem>
+
+
+        <MudItem xs="12" sm="6" md="3">
+            <MudSwitch Color="Color.Primary" label="Use Testing Buttons" @bind-Checked="@UseTestingButtons" />
+        </MudItem>
+        <MudItem xs="12" sm="6" md="3">
+            <p>@game.SavedVocab.SavedWords.Count Words</p>
+        </MudItem>
+    </MudGrid>
+
+
+}
+@if (LayoutProvider.CurrentButtonLayout == null)
+{
+    <MudText color=@Color.Error>No Layout selected. This game will not play well. </MudText>
+}
+//In order to import the testing buttons - it would need to reference TestUtilities
+@*@if (UseTestingButtons)
+{
+    <ButtonTesting HideButtonsWhenGameActive=true />
+}*@
+
+

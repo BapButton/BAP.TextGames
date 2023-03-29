@@ -1,0 +1,13 @@
+﻿<h5>Edit Vocab Words</h5>
+<MudContainer Style="max-height: 80vh; overflow-y: scroll">
+    <MudDialog>
+        <DialogContent>
+            <MudTextField @bind-Value="PersonName" Label="Person Name" Variant="Variant.Text"></MudTextField>
+            <MudButton @onclick="() => Save()">Save</MudButton>
+        </DialogContent>
+        <DialogActions>
+            <MudButton @onclick="() => CloseWithoutSaving()">Close Without Saving</MudButton>
+        </DialogActions>
+
+    </MudDialog>
+</MudContainer>

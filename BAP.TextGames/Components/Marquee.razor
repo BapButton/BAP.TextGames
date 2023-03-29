@@ -1,0 +1,29 @@
+﻿@page "/Marquee"
+@using BAP.Web.Games;
+
+<h3>Marquee</h3>
+
+<h4>Text to Display</h4>
+<MudPaper MaxWidth="600px">
+    @for (int i = 0; i < TextToDisplay.Count; i++)
+    {
+        var location = i;
+        <MudTextField @bind-Value="TextToDisplay[location]" Label="@($"Line {location + 1}")" Variant="Variant.Text"></MudTextField>
+    }
+    <MudText Typo="Typo.h4">Animation Type</MudText>
+
+    <MudSelect T="MarqueType" MultiSelection="true" @bind-SelectedValues="SelectedTypes">
+        @foreach (var item in Enum.GetValues(typeof(MarqueType)).Cast<MarqueType>().ToList())
+        {
+            <MudSelectItem Value="item">@item.ToString()</MudSelectItem>
+        }
+    </MudSelect>
+    @if (!Game.IsGameRunning)
+    {
+        <MudButton OnClick="StartGame">Start Marquee</MudButton>
+    }
+    else
+    {
+        <MudButton OnClick="EndGame">End Marquee</MudButton>
+    }
+</MudPaper>
