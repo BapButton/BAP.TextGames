@@ -12,7 +12,7 @@
     }
     <MudText Typo="Typo.h4">Animation Type</MudText>
 
-    <MudSelect T="MarqueType" MultiSelection="true" @bind-SelectedValues="SelectedTypes">
+    <MudSelect T="MarqueType" MultiSelection="true" SelectedValues="SelectedTypes">
         @foreach (var item in Enum.GetValues(typeof(MarqueType)).Cast<MarqueType>().ToList())
         {
             <MudSelectItem Value="item">@item.ToString()</MudSelectItem>

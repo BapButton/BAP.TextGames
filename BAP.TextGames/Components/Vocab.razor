@@ -25,17 +25,12 @@ else
                     <MudSelectItem Value="person.Id">@person.PersonName</MudSelectItem>
                 }
             </MudSelect>
-            <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => ShowEditPersonDialog(true))" />
-            <MudIconButton Icon="@Icons.Material.Filled.Add" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => ShowEditPersonDialog(false))" />
-            <MudIconButton Icon="@Icons.Material.Filled.Delete" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => game.DeletePerson(game.SelectedPersonId))" />
-        </MudItem>
-
-
-        <MudItem xs="12" sm="6" md="3">
-            <MudSwitch Color="Color.Primary" label="Use Testing Buttons" @bind-Checked="@UseTestingButtons" />
-        </MudItem>
-        <MudItem xs="12" sm="6" md="3">
-            <p>@game.SavedVocab.SavedWords.Count Words</p>
+            <MudGrid>
+                <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => ShowEditPersonDialog(true))" />
+                <MudIconButton Icon="@Icons.Material.Filled.Add" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => ShowEditPersonDialog(false))" />
+                <MudIconButton Icon="@Icons.Material.Filled.Delete" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => game.DeletePerson(game.SelectedPersonId))" />
+                <MudText>@game.SavedVocab.SavedWords.Count Words</MudText>
+            </MudGrid>
         </MudItem>
     </MudGrid>
 

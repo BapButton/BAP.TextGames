@@ -80,7 +80,7 @@ namespace BAP.Web.Games
                     }
                     else
                     {
-                        images.Add(AnimationHelper.GetMatrix(PaternEnumHelper.GetEnumFromCharacter(letter), bapColor));
+                        images.Add(AnimationHelper.GetMatrix(PatternEnumHelper.GetEnumFromCharacter(letter), bapColor));
                     }
                 }
 
@@ -125,7 +125,7 @@ namespace BAP.Web.Games
                         }
                         else
                         {
-                            images.Add(AnimationHelper.GetMatrix(PaternEnumHelper.GetEnumFromCharacter(letter), bapColor));
+                            images.Add(AnimationHelper.GetMatrix(PatternEnumHelper.GetEnumFromCharacter(letter), bapColor));
                         }
                     }
 

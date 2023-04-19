@@ -42,19 +42,6 @@ namespace BAP.TextGames.Components
             }
         }
 
-        //private void AuthorizeSpotify()
-        //{
-        //    var loginRequest = new LoginRequest(
-        //          new Uri("https://localhost:5001/spotifyCallback/"),
-        //          "4a9b9dab320240659583880719c5816d",
-        //          LoginRequest.ResponseType.Code
-        //        )
-        //    {
-        //        Scope = new[] { Scopes.PlaylistReadPrivate, Scopes.UserReadCurrentlyPlaying, Scopes.UserReadPlaybackPosition, Scopes.UserReadPlaybackState, Scopes.UserModifyPlaybackState }
-        //    };
-        //    var uri = loginRequest.ToUri();
-        //    NavManager.NavigateTo(uri.ToString(), true);
-        //}
 
         private void ShowHighScores(Score? newScore = null)
         {
