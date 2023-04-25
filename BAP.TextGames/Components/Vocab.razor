@@ -29,7 +29,7 @@ else
                 <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => ShowEditPersonDialog(true))" />
                 <MudIconButton Icon="@Icons.Material.Filled.Add" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => ShowEditPersonDialog(false))" />
                 <MudIconButton Icon="@Icons.Material.Filled.Delete" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => game.DeletePerson(game.SelectedPersonId))" />
-                <MudText>@game.SavedVocab.SavedWords.Count Words</MudText>
+                <MudText style="height:60px;line-height:60px" >@game.SavedVocab.SavedWords.Count Words</MudText>
             </MudGrid>
         </MudItem>
     </MudGrid>
