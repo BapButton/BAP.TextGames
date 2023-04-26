@@ -155,7 +155,7 @@ namespace BAP.KeyBoardGameBase
         {
             if (IsGameRunning)
             {
-                if (CurrentDigit == digit)
+                if (char.ToUpperInvariant(CurrentDigit) == char.ToUpperInvariant(digit))
                 {
                     RightButtonPressed();
                     keyboard.OverrideButtonWithImage(digit, new(PatternHelper.GetBytesForPattern(Patterns.CheckMark), new(0, 255, 0)), 500);
@@ -257,11 +257,11 @@ namespace BAP.KeyBoardGameBase
             wrongScore = 0;
             nodeIdsToUseForDisplay = new List<string>();
             SetButtonCountAndButtonList(useTopRowForDisplay);
-            keyboard.Reset();
 
             keyboard.SetCharacters(keyboardCharacters);
             keyboard.AddNodesToAvoid(nodeIdsToUseForDisplay);
             keyboard.SetPlayDefaultSoundOnPress(true);
+            keyboard.Reset();
             if (ButtonCount < 5)
             {
                 MsgSender.SendUpdate($"Not enough Buttons. You only have {ButtonCount} buttons but you need at least 5", true);

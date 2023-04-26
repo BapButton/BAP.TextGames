@@ -2,13 +2,16 @@
 @using MudBlazor;
 @if (game.IsGameRunning)
 {
+    string currentAnswer = new String(game.Answer, 0, game.CurrentSpotInAnswerString);
+
     <button class="btn btn-primary" @onclick="EndGame">End Game</button>
     <button class="btn btn-primary" @onclick="() => game.ReplayCurrentWord()">Replay Word</button>
+    <h3>@currentAnswer</h3>
 }
 else
 {
     <h3>Vocabulary Game</h3>
-    <MudGrid>
+    <MudGrid style="width:95%">
         <MudItem xs="12" sm="6" md="3">
             <button class="btn btn-primary" @onclick="StartGame">Start Game</button>
         </MudItem>
@@ -29,7 +32,7 @@ else
                 <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => ShowEditPersonDialog(true))" />
                 <MudIconButton Icon="@Icons.Material.Filled.Add" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => ShowEditPersonDialog(false))" />
                 <MudIconButton Icon="@Icons.Material.Filled.Delete" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => game.DeletePerson(game.SelectedPersonId))" />
-                <MudText style="height:60px;line-height:60px" >@game.SavedVocab.SavedWords.Count Words</MudText>
+                <MudText style="height:60px;line-height:60px">@game.SavedVocab.SavedWords.Count Words</MudText>
             </MudGrid>
         </MudItem>
     </MudGrid>
